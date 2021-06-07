@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API de requisição de criptomoedas do curso SP FullStack da DIO">
+    <meta name="author" content="Sérgio da Costa Mercês">
+    <meta name="reply-to" content="sergio.merces@gmail.com">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <title>CoinMarketCap</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        
+        //minha API key
+        var apikey = {
+            key: '0e9216a4-6d40-4f69-8d36-1d7cb0dbb420'
+        }
+
+        //GET Fetch Requisition
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' +
+                apikey.key)
+                .then((response) => {
+                    if(!response.ok) throw new Error('Erro ao executar a requisição, status ' + response.status);
+                    return response.json();
+            })
+            .then((api) => {
+                
+                console.log(api);
+            })
+            .catch((error) => {
+                console.error(error.message);
+            });
+            
+    </script>
+</body>
+</html>
